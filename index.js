@@ -14,7 +14,7 @@ const windowsScript = path.join(mainPath, './forWindows.vbs')
 const oloquinho = () => {
     const commandsForEachPlatform = {
       linux: `paplay ${soundPath}.ogg`,
-      windows: `${windowsScript} ${soundPath}.mp3`,
+      win32: `${windowsScript} ${soundPath}.mp3`,
       mac: `afplay ${soundPath}.mp3`,
     }
 
