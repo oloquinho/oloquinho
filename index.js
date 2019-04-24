@@ -1,38 +1,30 @@
 #!/usr/bin/env node
 
-const exect = require('child_process').exec;
-const path = require('path');
-const fs = require('fs');
+const { exec } = require('child_process')
+const { promisify } = require('util')
+const path = require('path')
+const fs = require('fs')
 
-const mainPath = path.dirname(fs.realpathSync(__filename));
-const soundPath = path.join(mainPath, './oloquinho');
+const execPromise = promisify(exec)
 
-const oloquinho = function (){
-    const linuxcmd = 'paplay '+soundPath+'.ogg';
-    const windowscmd = path.join(mainPath, './forWindows.vbs')+' '+soundPath+'.mp3';
-    const maccmd = 'afplay '+soundPath+'.mp3';
+const mainPath = path.dirname(fs.realpathSync(__filename))
+const soundPath = path.join(mainPath, './oloquinho')
+const windowsScript = path.join(mainPath, './forWindows.vbs')
 
-    const platform = process.platform;
-
-    if(platform === 'linux'){
-        return exec(linuxcmd);
-    }
-    else if(platform === 'win32'){
-        return exec(windowscmd);
-    } else if(platform === 'darwin'){
-        return exec(maccmd);
+const oloquinho = () => {
+    const commandsForEachPlatform = {
+      linux: `paplay ${soundPath}.ogg`,
+      win32: `${windowsScript} ${soundPath}.mp3`,
+      darwin: `afplay ${soundPath}.mp3`,
     }
 
-    function exec(cmd){
-        return exect(cmd, function (error, stdout, stderr) {
-           if(error)
-               console.error(error);
-        });
-    }
+    const platform = process.platform
+    const codeToExecute = commandsForEachPlatform[platform]
+
+    return execPromise(codeToExecute)
 }
 
-module.exports = oloquinho;
+module.exports = oloquinho
 
-if (!module.parent) {
-    oloquinho();
-}
+if(!module.parent)
+    oloquinho()
