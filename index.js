@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
-const { exec } = require('child_process');
-const { promisify } = require('util');
-const path = require('path');
-const fs = require('fs');
+const { exec } = require('child_process')
+const { promisify } = require('util')
+const path = require('path')
+const fs = require('fs')
 
-const execPromise = promisify(exec);
+const execPromise = promisify(exec)
 
-const mainPath = path.dirname(fs.realpathSync(__filename));
-const soundPath = path.join(mainPath, './oloquinho');
-const windowsScript = path.join(mainPath, './forWindows.vbs');
+const mainPath = path.dirname(fs.realpathSync(__filename))
+const soundPath = path.join(mainPath, './oloquinho')
+const windowsScript = path.join(mainPath, './forWindows.vbs')
 
 const oloquinho = () => {
     const commandsForEachPlatform = {
@@ -18,13 +18,13 @@ const oloquinho = () => {
       mac: `afplay ${soundPath}.mp3`,
     }
 
-    const platform = process.platform;
-    const codeToExecute = commandsForEachPlatform[platform];
+    const platform = process.platform
+    const codeToExecute = commandsForEachPlatform[platform]
 
     return execPromise(codeToExecute)
 }
 
-module.exports = oloquinho;
+module.exports = oloquinho
 
 if(!module.parent)
-    oloquinho();
+    oloquinho()
