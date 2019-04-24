@@ -7,32 +7,26 @@ const fs = require('fs');
 const mainPath = path.dirname(fs.realpathSync(__filename));
 const soundPath = path.join(mainPath, './oloquinho');
 
-const oloquinho = function (){
-    const linuxcmd = 'paplay '+soundPath+'.ogg';
-    const windowscmd = path.join(mainPath, './forWindows.vbs')+' '+soundPath+'.mp3';
-    const maccmd = 'afplay '+soundPath+'.mp3';
+const exec = (cmd) =>
+    exect(cmd, function (error, stdout, stderr) {
+       if(error)
+           console.error(error);
+    });
+
+const oloquinho = () => {
+    const commandsForEachPlatform = {
+      linux: `paplay ${soundPath}.ogg`,
+      windows: path.join(mainPath, './forWindows.vbs')+' '+soundPath+'.mp3',
+      mac: `afplay ${soundPath}.mp3`,
+    }
 
     const platform = process.platform;
+    const codeToExecute = commandsForEachPlatform[platform];
 
-    if(platform === 'linux'){
-        return exec(linuxcmd);
-    }
-    else if(platform === 'win32'){
-        return exec(windowscmd);
-    } else if(platform === 'darwin'){
-        return exec(maccmd);
-    }
-
-    function exec(cmd){
-        return exect(cmd, function (error, stdout, stderr) {
-           if(error)
-               console.error(error);
-        });
-    }
+    return exec(codeToExecute);
 }
 
 module.exports = oloquinho;
 
-if (!module.parent) {
+if(!module.parent)
     oloquinho();
-}
