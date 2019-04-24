@@ -1,17 +1,14 @@
 #!/usr/bin/env node
 
-const exect = require('child_process').exec;
+const { exec } = require('child_process');
+const { promisify } = require('util');
 const path = require('path');
 const fs = require('fs');
 
+const execPromise = promisify(exec);
+
 const mainPath = path.dirname(fs.realpathSync(__filename));
 const soundPath = path.join(mainPath, './oloquinho');
-
-const exec = (cmd) =>
-    exect(cmd, function (error, stdout, stderr) {
-       if(error)
-           console.error(error);
-    });
 
 const oloquinho = () => {
     const commandsForEachPlatform = {
@@ -23,7 +20,7 @@ const oloquinho = () => {
     const platform = process.platform;
     const codeToExecute = commandsForEachPlatform[platform];
 
-    return exec(codeToExecute);
+    return execPromise(codeToExecute)
 }
 
 module.exports = oloquinho;
