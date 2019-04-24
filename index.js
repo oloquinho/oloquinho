@@ -9,11 +9,12 @@ const execPromise = promisify(exec);
 
 const mainPath = path.dirname(fs.realpathSync(__filename));
 const soundPath = path.join(mainPath, './oloquinho');
+const windowsScript = path.join(mainPath, './forWindows.vbs');
 
 const oloquinho = () => {
     const commandsForEachPlatform = {
       linux: `paplay ${soundPath}.ogg`,
-      windows: path.join(mainPath, './forWindows.vbs')+' '+soundPath+'.mp3',
+      windows: `${windowsScript} ${soundPath}.mp3`,
       mac: `afplay ${soundPath}.mp3`,
     }
 
