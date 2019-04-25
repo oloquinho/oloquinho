@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "luanorlandi",
+      "name": "Luan Orlandi",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/6919329?v=4",
+      "profile": "http://luanorlandi.github.io",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "oloquinho",
+  "projectOwner": "oloquinho",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}

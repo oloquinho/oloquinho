@@ -1,4 +1,5 @@
 # 'Oloquinho' Command Line Sound
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 <div style="text-align: center">
     <img src="./oloquinho.jpg" height="300"/>
@@ -44,3 +45,14 @@ Node script:
  - [Faustão Errou](https://github.com/BrOrlandi/faustao-errou/)
  - [Omaewa](https://github.com/BrOrlandi/omaewa/)
  - [X-Files](https://github.com/BrOrlandi/xfiles/)
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table><tr><td align="center"><a href="http://luanorlandi.github.io"><img src="https://avatars1.githubusercontent.com/u/6919329?v=4" width="100px;" alt="Luan Orlandi"/><br /><sub><b>Luan Orlandi</b></sub></a><br /><a href="https://github.com/oloquinho/oloquinho/commits?author=luanorlandi" title="Code">💻</a></td></tr></table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
