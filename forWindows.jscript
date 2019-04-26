@@ -1,11 +1,13 @@
-var file=WScript.Arguments.Item(0);
-var fso= new ActiveXObject("Scripting.FileSystemObject");
+var file = WScript.Arguments.Item(0);
+
+var fileSystemObject = new ActiveXObject("Scripting.FileSystemObject");
+var absoluteFilePath = fileSystemObject.GetAbsolutePathName(file);
 
 var player = new ActiveXObject("WMPlayer.OCX");
-player.URL=fso.GetAbsolutePathName(file);
+player.URL = absoluteFilePath;
 player.controls.play();
 
-while(player.playState!=1){
+while(player.playState!=1)
 	WScript.Sleep(100);
-}
+
 player.close();
