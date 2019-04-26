@@ -4,7 +4,9 @@
   "description": "Oloquinho meu",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js default",
+    "start-slow": "node index.js slow",
+    "start-fast": "node index.js fast"
   },
   "repository": {
     "type": "git",

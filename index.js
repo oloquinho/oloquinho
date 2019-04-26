@@ -7,11 +7,14 @@ const fs = require('fs')
 
 const execPromise = promisify(exec)
 
+const args = process.argv.slice(2);
 const mainPath = path.dirname(fs.realpathSync(__filename))
-const soundPath = path.join(mainPath, './oloquinho')
+const soundPath = path.join(mainPath, `./oloquinho-${args[0]}`)
 const windowsScript = path.join(mainPath, './forWindows.vbs')
 
+
 const oloquinho = () => {
+  
     const commandsForEachPlatform = {
       linux: `paplay ${soundPath}.ogg`,
       win32: `"${windowsScript}" "${soundPath}.mp3"`,
@@ -23,6 +26,8 @@ const oloquinho = () => {
 
     return execPromise(codeToExecute)
 }
+
+
 
 // TODO: when tail call optimization is implemented on NodeJS, simplify this.
 const globalMode = async () => {
