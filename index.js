@@ -9,7 +9,7 @@ const execPromise = promisify(exec)
 
 const mainPath = path.dirname(fs.realpathSync(__filename))
 const soundPath = path.join(mainPath, './oloquinho')
-const windowsScript = path.join(mainPath, './forWindows.vbs')
+const windowsScript = path.join(mainPath, './forWindows.bat')
 
 const oloquinho = () => {
     const commandsForEachPlatform = {
