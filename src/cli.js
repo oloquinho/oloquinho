@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
+const meow = require('meow');
 const oloquinho = require('./index')
 
 // TODO: when tail call optimization is implemented on NodeJS, simplify this.
-const globalMode = async () => {
+const cliMode = async ({ input, flags }) => {
   while(true)
     await oloquinho()
 }
 
-globalMode()
+const cliInterface = meow({})
+cliMode(cliInterface)
