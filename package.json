@@ -2,9 +2,9 @@
   "name": "oloquinho",
   "version": "1.0.3",
   "description": "Oloquinho meu",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "author": "Luan Orlandi <luanorlandi@gmail.com>",
   "license": "MIT",
   "bin": {
-    "oloquinho": "./index.js"
+    "oloquinho": "./src/index.js"
   },
   "bugs": {
     "url": "https://github.com/luanorlandi/oloquinho/issues"
