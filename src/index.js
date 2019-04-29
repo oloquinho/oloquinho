@@ -8,7 +8,7 @@ const fs = require('fs')
 const execPromise = promisify(exec)
 
 const mainPath = path.dirname(fs.realpathSync(__filename))
-const soundPath = path.join(mainPath, './oloquinho')
+const soundPath = path.join(mainPath, './audios/oloquinho')
 const windowsScript = path.join(mainPath, './forWindows.jscript')
 
 const oloquinho = () => {
