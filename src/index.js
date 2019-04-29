@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const { exec } = require('child_process')
 const { promisify } = require('util')
 const path = require('path')
@@ -24,13 +22,4 @@ const oloquinho = () => {
     return execPromise(codeToExecute)
 }
 
-// TODO: when tail call optimization is implemented on NodeJS, simplify this.
-const globalMode = async () => {
-  while(true)
-    await oloquinho()
-}
-
 module.exports = oloquinho
-
-if(!module.parent)
-    globalMode()

@@ -13,7 +13,7 @@
   "author": "Luan Orlandi <luanorlandi@gmail.com>",
   "license": "MIT",
   "bin": {
-    "oloquinho": "./src/index.js"
+    "oloquinho": "./src/cli.js"
   },
   "bugs": {
     "url": "https://github.com/luanorlandi/oloquinho/issues"
