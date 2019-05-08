@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const { exec } = require('child_process')
 const { promisify } = require('util')
 const path = require('path')
@@ -8,7 +6,7 @@ const fs = require('fs')
 const execPromise = promisify(exec)
 
 const mainPath = path.dirname(fs.realpathSync(__filename))
-const soundPath = path.join(mainPath, './oloquinho')
+const soundPath = path.join(mainPath, './audios/oloquinho')
 const windowsScript = path.join(mainPath, './forWindows.jscript')
 
 const oloquinho = () => {
@@ -24,13 +22,4 @@ const oloquinho = () => {
     return execPromise(codeToExecute)
 }
 
-// TODO: when tail call optimization is implemented on NodeJS, simplify this.
-const globalMode = async () => {
-  while(true)
-    await oloquinho()
-}
-
 module.exports = oloquinho
-
-if(!module.parent)
-    globalMode()
