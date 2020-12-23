@@ -1,6 +1,6 @@
 {
   "name": "oloquinho",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Oloquinho meu",
   "main": "src/index.js",
   "scripts": {
