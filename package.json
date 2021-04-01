@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/luanorlandi/oloquinho#readme",
   "dependencies": {
-    "meow": "^6.1.0"
+    "meow": "^8.0.0"
   }
 }
